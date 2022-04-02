@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 export default function Calc() {
-
+//calc 수정하기
     const [inputs, setInputs] = useState({opcode: "+"})
     const [result, setResult] = useState(``)
     const { num1, num2, opcode} = inputs
