@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 export default function Calc() {
-//calc 수정하기
+
     const [inputs, setInputs] = useState({opcode: "+"})
     const [result, setResult] = useState(``)
     const { num1, num2, opcode} = inputs
@@ -16,7 +16,8 @@ export default function Calc() {
 
     const onClick = async (e) => {
         e.preventDefault()
-        switch (opcode){
+        alert(` 계산결과 : ${JSON.stringify(inputs)}`)
+            switch (opcode){
             case "+" :
                 return setResult(Number(num1) + Number(num2))
             case "-" :
@@ -27,8 +28,11 @@ export default function Calc() {
                 return setResult(Number(num1) / Number(num2))
             case "%" :
                 return setResult(Number(num1) % Number(num2))
+           
+    
 
         }
+        
     }
 
     return (<>

@@ -1,7 +1,7 @@
 import style from "board/style/board-form.module.css"
 import react, {useState} from 'react';
 
-export default function TeamForm(){
+export default function BoardForm(){
     const [inputs,setInputs] = useState({})
     const {passengerId,name,teamId,subject} = inputs;
 

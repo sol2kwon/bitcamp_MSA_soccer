@@ -14,7 +14,8 @@ const handleChange =(e)=>{
 }
 const hadleClick = (e)=>{
     e.preventDefault()
-    setResult(`${name}님의 BMI 결과는 ${(weight *10000/height/height).toFixed(2)}입니다.`)
+    alert(`BMI결과 :${name}님의 BMI 결과는 ${JSON.stringify(inputs)}`)
+    //setResult(`${name}님의 BMI 결과는 ${(weight *10000/height/height).toFixed(2)}입니다.`)
 
 }
 

@@ -12,7 +12,8 @@ export default function Signin(){
    }
    const handleClick=(e)=>{
        e.preventDefault()
-       memberLogin({na, id ,pw}).then(res => setResult(res.data)).catch( err => console.log(`에러발생 : ${err}`))
+       alert(`로그인정보 : ${JSON.stringify(inputs)}`)
+       //memberLogin({na, id ,pw}).then(res => setResult(res.data)).catch( err => console.log(`에러발생 : ${err}`))
    }
     return <div><h1>로그인 폼</h1>
     <form action=""> 
