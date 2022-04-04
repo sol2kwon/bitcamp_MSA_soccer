@@ -1,5 +1,6 @@
+import axios from "axios";
 import style from "board/style/board-form.module.css"
-import react, {useState} from 'react';
+import React, {useState} from 'react';
 
 export default function BoardForm(){
     const [inputs,setInputs] = useState({})
@@ -14,10 +15,14 @@ export default function BoardForm(){
 
     const handleSubmit = e => {
         e.preventDefault()
-        alert(`등록할 게시글 :${JSON.stringify(inputs)}`)
+        alert( `등록할 게시글 :  ${ JSON.stringify(inputs) }` )
+        axios.post("http://localhost:5000/api/board/write", inputs)
+        .then(res => {
+            alert(JSON.stringify(res.data)
+        )})
+        .catch(err => alert(err))
     }
     
-
     return (<>
         <h1>게시글 등록</h1>
         <div className={style.container}>
@@ -42,7 +47,7 @@ export default function BoardForm(){
             </div>
             <div className={style.row}>
                 <div className={style.col25}>
-                <label htmlFor="team">응원팀</label>
+                <label htmlFor="teamId">응원팀</label>
                 </div>
                 <div className={style.col75}>
                 <select id="teamId" name="teamId">
@@ -68,5 +73,4 @@ export default function BoardForm(){
             </div>
             </htmlForm>
             </div>
-    </>)
-}
+    </>)}
