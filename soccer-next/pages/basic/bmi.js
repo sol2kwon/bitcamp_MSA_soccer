@@ -12,7 +12,7 @@ export default function Bmi() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(proxy+'/api/basic/bmi', inputs)
+        axios.post('http://localhost:5000/api/basic/bmi', inputs)
         .then(res => {
             const bmi = res.data
             document.getElementById('result-span').innerHTML = `
@@ -22,7 +22,7 @@ export default function Bmi() {
             <h3>BMI결과 : ${bmi.bmi}</h3>
             `
         })
-        .catch(err => alert(err))
+        .catch(err => alert(`아아아악 ${err}`))
     }
     return (<div>
         <form action="" onSubmit={handleSubmit} >

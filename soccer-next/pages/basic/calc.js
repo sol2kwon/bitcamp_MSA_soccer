@@ -3,8 +3,6 @@ import React, { useState } from "react";
 export default function Calc() {
 
     const [inputs, setInputs] = useState({opcode: "+"})
-    const [result, setResult] = useState(``)
-    const { num1, opcode, num2} = inputs
 
     const onChange = (e) => {
         e.preventDefault()
@@ -19,13 +17,7 @@ export default function Calc() {
         e.preventDefault()
         axios.post('http://localhost:5000/api/basic/calc', inputs)
         .then(res => {
-            const calc = res.data
-            document.getElementById('result-span').innerHTML = `
-            <h3>숫자1 : ${calc.num1}</h3>
-            <h3>연산자 : ${calc.opcode}</h3>
-            <h3>숫자2 : ${calc.num2}</h3>
-            <h3>calc결과 : ${calc.calc}</h3>
-            `
+            alert(JSON.stringify(res.data))
         })
         .catch(err=>alert(err))
     }
