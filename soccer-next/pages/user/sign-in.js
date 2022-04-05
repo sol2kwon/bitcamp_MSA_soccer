@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-export default function Signin(){
+export default function SignIn(){
    const [inputs,setInputs]=useState({})
    const[result,setResult]=useState('')
    const {na,id,pw}=inputs;
