@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function SignUp(){
     const [inputs,setInputs]=useState({})
-    const {userName,password,name,telePhone} = inputs;
+
 
    const handleChange = e =>{
        e.preventDefault()
@@ -15,10 +15,9 @@ export default function SignUp(){
         e.preventDefault()
         axios.post('http://localhost:5000/api/user/signup',inputs)
         .then(res=>{
-            const signup = res.data
-            document.getElementById('result-span').innerHTML = `
-            <h3>이름 : ${signup.name}</h3>
-            `
+            alert(JSON.stringify(inputs))
+            alert(JSON.stringify(res.data))
+            
         }).catch(err=>alert(err))
    
    }
@@ -29,7 +28,7 @@ export default function SignUp(){
     <h1>회원가입폼</h1> 
     <div>
         <label><b>사용자 ID</b></label>
-        <input type="text" name='userName' onChange={handleChange}/><br />
+        <input type="text" name='username' onChange={handleChange}/><br />
 
         <label htmlFor=""><b>비밀번호</b></label>
         <input type="text" name='password'onChange={handleChange}/><br />
@@ -38,8 +37,10 @@ export default function SignUp(){
         <input type="text" name='name' onChange={handleChange}/><br />
 
         <label><b>전화번호</b></label>
-        <input type="text" name='telePhone' onChange={handleChange}/><br />
+        <input type="text" name='telephone' onChange={handleChange}/><br />
     </div>
-    <button >전 송</button><button>취 소</button><br />
+    <div>결과 :<span id = "result-span"></span> </div>
+    <input type="submit" value="확인" /><br />
+    <button>취 소</button><br />
     </form>
     </div>)}
