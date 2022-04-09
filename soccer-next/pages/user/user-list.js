@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import tableStyle from '../common/style/tableStyle.module.css'
 const Table = ({columns,colspan,data})=>{
@@ -6,8 +7,8 @@ const Table = ({columns,colspan,data})=>{
         <table className = {tableStyle.table}>
             <thead>
         <tr className = {tableStyle.tr}>
-        {columns.map((column)=>(
-            <th key={column} className = {tableStyle.td}> {column} </th>
+        {columns.map((column,index)=>(
+            <th key={index} className = {tableStyle.td}> {column} </th>
         ))}
         </tr>
         </thead>
@@ -17,7 +18,12 @@ const Table = ({columns,colspan,data})=>{
         </tr>
         :data.map((user)=>(
             <tr className = {tableStyle.tr} key = {user.username}>
-            <td className = {tableStyle.td}> {user.username}</td>
+            <td className = {tableStyle.td}> 
+                <Link href={{pathname:`/user/[username]`,
+            query:{selectedUser: 'test'}}} as ={`/user/${user.username}`}>
+            <a>{user.username}</a>
+            </Link>
+            </td>
             <td className = {tableStyle.td}> {user.password}</td>
             <td className = {tableStyle.td}> {user.name}</td>
             <td className = {tableStyle.td}> {user.telephone}</td>
