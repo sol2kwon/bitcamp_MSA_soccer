@@ -23,3 +23,4 @@ exports.profile = (req,res)=>{
         res.status(200).json({success:true,user})
     })
 }
+//코드설명
