@@ -4,8 +4,8 @@ const header = {
     "content-Type":"application/json",
     Authorization: "JWT fefege...",
 }
-const signupAPI = (data) => axios.post(`${SERVER}/api/user/signup`,inputs, {headers})
+const joinAPI = (data) => axios.post(`${SERVER}/api/user/signup`,inputs, {headers})
 
 export default{
-    signupAPI
+joinupAPI
 }
